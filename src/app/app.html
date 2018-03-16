@@ -1,1 +1,30 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="mainContent">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        المنظم الذكي
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content id="side-menu21">
+    <ion-list id="side-menu21-list1">
+      <ion-item color="none" menuClose="" on-click="goToPage1()" id="side-menu21-list-item1">
+        الصفحة الرئيسية
+      </ion-item>
+      <ion-item color="none" menuClose="" on-click="goToPage2()" id="side-menu21-list-item2">
+        الإشعارات
+      </ion-item>
+      <ion-item color="none" menuClose="" on-click="goToPage3()" id="side-menu21-list-item3">
+        الجدول
+      </ion-item>
+      <ion-item color="none" menuClose="" on-click="goToPage4()" id="side-menu21-list-item4">
+        حسابات الأبناء
+      </ion-item>
+      <ion-item color="none" menuClose="" on-click="goToPage6()" id="side-menu21-list-item5">
+        تسجيل الخروج
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #mainContent [root]="rootPage"></ion-nav>

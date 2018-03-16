@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      انشاء حساب جديد
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page7">
+  <form id="page7-form2">
+    <ion-list id="page7-list3">
+      <ion-item id="page7-input3">
+        <ion-label>
+          إسم المستخدم
+        </ion-label>
+        <ion-input type="text" placeholder="" name="userName"></ion-input>
+      </ion-item>
+      <ion-item id="page7-input4">
+        <ion-label>
+          البريد الإلكتروني
+        </ion-label>
+        <ion-input type="email" placeholder="" name="email"></ion-input>
+      </ion-item>
+      <ion-item id="page7-input5">
+        <ion-label>
+          كلمة السر
+        </ion-label>
+        <ion-input type="text" placeholder="" name="password"></ion-input>
+      </ion-item>
+      <ion-item id="page7-select1">
+        <ion-label>
+          نوع الحساب
+        </ion-label>
+        <ion-select name="accountType">
+          <ion-option>
+            أب / أم
+          </ion-option>
+          <ion-option>
+            ابن
+          </ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <button id="page7-button3" ion-button color="stable" block on-click="goToPage6()">
+      إنشاء الحساب
+    </button>
+  </form>
+</ion-content>
