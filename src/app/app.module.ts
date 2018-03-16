@@ -2,12 +2,12 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { Page1Page } from '../pages/page1/page1';
-import { Page2Page } from '../pages/page2/page2';
-import { Page3Page } from '../pages/page3/page3';
-import { Page4Page } from '../pages/page4/page4';
-import { Page6Page } from '../pages/page6/page6';
-import { Page7Page } from '../pages/page7/page7';
+import { MainPage } from '../pages/main/main';
+import { NotificationsPage } from '../pages/notifications/notifications';
+import { TablePage } from '../pages/table/table';
+import { SonsAccountsPage } from '../pages/sons-accounts/sons-accounts';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -16,12 +16,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    Page1Page,
-    Page2Page,
-    Page3Page,
-    Page4Page,
-    Page6Page,
-    Page7Page
+    MainPage,
+    NotificationsPage,
+    TablePage,
+    SonsAccountsPage,
+    LoginPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -30,12 +30,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Page1Page,
-    Page2Page,
-    Page3Page,
-    Page4Page,
-    Page6Page,
-    Page7Page
+    MainPage,
+    NotificationsPage,
+    TablePage,
+    SonsAccountsPage,
+    LoginPage,
+    SignupPage
   ],
   providers: [
     StatusBar,

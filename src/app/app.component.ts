@@ -3,22 +3,19 @@ import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { Page1Page } from '../pages/page1/page1';
-import { Page2Page } from '../pages/page2/page2';
-import { Page3Page } from '../pages/page3/page3';
-import { Page4Page } from '../pages/page4/page4';
-
-
-import { Page6Page } from '../pages/page6/page6';
-
-
+import { MainPage } from '../pages/main/main';
+import { NotificationsPage } from '../pages/notifications/notifications';
+import { TablePage } from '../pages/table/table';
+import { SonsAccountsPage } from '../pages/sons-accounts/sons-accounts';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any = Page6Page;
+  rootPage: any = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -28,20 +25,20 @@ export class MyApp {
       splashScreen.hide();
     });
   }
-  goToPage1(params){
+  goToMainPage(params){
     if (!params) params = {};
-    this.navCtrl.setRoot(Page1Page);
-  }goToPage2(params){
+    this.navCtrl.setRoot(MainPage);
+  } goToNotificationsPage(params){
     if (!params) params = {};
-    this.navCtrl.setRoot(Page2Page);
-  }goToPage3(params){
+    this.navCtrl.setRoot(NotificationsPage);
+  }goToTablePage(params){
     if (!params) params = {};
-    this.navCtrl.setRoot(Page3Page);
-  }goToPage4(params){
+    this.navCtrl.setRoot(TablePage);
+  }goToSonsAccountsPage(params){
     if (!params) params = {};
-    this.navCtrl.setRoot(Page4Page);
-  }goToPage6(params){
+    this.navCtrl.setRoot(SonsAccountsPage);
+  }goToLoginPage(params){
     if (!params) params = {};
-    this.navCtrl.setRoot(Page6Page);
+    this.navCtrl.setRoot(LoginPage);
   }
 }

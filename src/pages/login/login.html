@@ -8,27 +8,27 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page6">
-  <form id="page6-form1">
-    <ion-list id="page6-list2">
-      <ion-item id="page6-input1">
+<ion-content padding id="login-page">
+  <form id="login-form">
+    <ion-list id="login-list">
+      <ion-item id="login-input-email">
         <ion-label>
           البريد الإلكتروني
         </ion-label>
         <ion-input type="email" placeholder="" name="email"></ion-input>
       </ion-item>
-      <ion-item id="page6-input2">
+      <ion-item id="login-input-password">
         <ion-label>
           كلمة السر
         </ion-label>
         <ion-input type="password" placeholder="" name="password"></ion-input>
       </ion-item>
     </ion-list>
-    <div class="spacer" style="height:40px;" id="page6-spacer1"></div>
-    <button id="page6-button1" ion-button color="stable" block on-click="goToPage1()">
+    <div class="spacer" style="height:40px;" id="login-spacer"></div>
+    <button id="page6-button1" ion-button color="stable" block on-click="goToMainPage()">
       تسجيل الدخول
     </button>
-    <button id="page6-button2" ion-button clear color="positive" block href-inappbrowser="/signup">
+    <button id="login-button-creat-account" ion-button clear color="positive" block on-click="goToSignupPage()">
       إنشاء حساب جديد
     </button>
   </form>
