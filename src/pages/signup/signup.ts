@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
-import { MainPage } from '../main/main';
+import { StartPage } from '../start/start';
 
 @Component({
   selector: 'page-signup',
@@ -17,6 +17,6 @@ export class SignupPage {
   }
   goTomain(params){
     if (!params) params = {};
-    this.navCtrl.push(MainPage);
+    this.navCtrl.push(StartPage);
   }
 }

@@ -3,12 +3,12 @@ import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { MainPage } from '../pages/main/main';
+import { StartPage } from '../pages/start/start';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { TablePage } from '../pages/table/table';
 import { SonsAccountsPage } from '../pages/sons-accounts/sons-accounts';
 import { LoginPage } from '../pages/login/login';
-import { SignupPage } from '../pages/signup/signup';
+// import { SignupPage } from '../pages/signup/signup';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,9 +25,9 @@ export class MyApp {
       splashScreen.hide();
     });
   }
-  goToMainPage(params){
+  goToStartPage(params){
     if (!params) params = {};
-    this.navCtrl.setRoot(MainPage);
+    this.navCtrl.setRoot(StartPage);
   } goToNotificationsPage(params){
     if (!params) params = {};
     this.navCtrl.setRoot(NotificationsPage);
