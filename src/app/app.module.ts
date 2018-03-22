@@ -8,7 +8,7 @@ import { TablePage } from '../pages/table/table';
 import { SonsAccountsPage } from '../pages/sons-accounts/sons-accounts';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
-
+import { MenuPage } from '../pages/menu/menu';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,7 +21,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TablePage,
     SonsAccountsPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    MenuPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TablePage,
     SonsAccountsPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    MenuPage
   ],
   providers: [
     StatusBar,
