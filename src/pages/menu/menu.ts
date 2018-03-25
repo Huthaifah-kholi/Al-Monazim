@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild  } from '@angular/core';
+import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 import { StartPage } from '../start/start';
 import { NotificationsPage } from '../notifications/notifications';
 import { TablePage } from '../table/table';
@@ -19,9 +19,9 @@ import { LoginPage } from '../login/login';
   templateUrl: 'menu.html',
 })
 export class MenuPage {
-
+  @ViewChild(Nav) navCtrl: Nav;
   rootPage: any = StartPage;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor( public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -41,6 +41,6 @@ export class MenuPage {
     this.navCtrl.setRoot(SonsAccountsPage);
   } goToLoginPage(params) {
     if (!params) params = {};
-    this.navCtrl.setRoot(LoginPage);
+    this.navCtrl.setRoot(LoginPage, {}, { animate: true, direction: 'forward' });
   }
 }

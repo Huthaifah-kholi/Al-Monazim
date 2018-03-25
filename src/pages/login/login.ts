@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
 import { MenuPage } from '../menu/menu';
 
@@ -9,7 +9,8 @@ import { MenuPage } from '../menu/menu';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public menuCtrl: MenuController) {
+    this.menuCtrl.enable(false,'myMenu');
   }
   goToMenuPage(params){
     if (!params) params = {};
