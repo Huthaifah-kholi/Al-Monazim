@@ -17,6 +17,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MenuPageModule } from '../pages/menu/menu.module';
+import { GlobalVariablesProvider } from '../providers/global-variables/global-variables';
 
 // firebase config
 export const firebaseConfig = {
@@ -61,7 +62,8 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GlobalVariablesProvider
   ]
 })
 export class AppModule {}

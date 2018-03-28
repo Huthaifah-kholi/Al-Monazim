@@ -3,6 +3,8 @@ import { NavController, MenuController } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
 import { MenuPage } from '../menu/menu';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { GlobalVariablesProvider } from '../../providers/global-variables/global-variables';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 let _this;
 @Component({
@@ -12,29 +14,42 @@ let _this;
 export class LoginPage {
   @ViewChild('email') email;
   @ViewChild('password') password;
-  
-  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public menuCtrl: MenuController) {
+
+  constructor(private afAuth: AngularFireAuth, private afDB: AngularFireDatabase, public gvp: GlobalVariablesProvider, public navCtrl: NavController, public menuCtrl: MenuController) {
     _this = this;
-    this.menuCtrl.enable(false,'myMenu');
+    this.menuCtrl.enable(false, 'myMenu');
   }
-  signin(){
-    console.log("login progress");
-    
+  signin() {
+    console.log('LoginPage ==> signin()');
+
     this.afAuth.auth.signInWithEmailAndPassword(_this.email.value, _this.password.value).then(
-        (user) => {
-          console.log(user.uid);
-          _this.goToMenuPage();
-        }).catch(function (error) {
-          console.log(error.message);
-        }) 
+      (user) => {
+        _this.getUserData(user.uid);
+        _this.goToMenuPage();
+        console.log('LoginPage ==> signin() ==> signInWithEmailAndPassword()');
+      }).catch(function (error) {
+        console.log(error.message);
+      })
   }
 
-  goToMenuPage(){
+  goToMenuPage() {
     // if (!params) params = {};
     // this.navCtrl.push(MenuPage);
     this.navCtrl.setRoot(MenuPage, {}, { animate: true, direction: 'forward' });
   }
   goToSignupPage() {
     this.navCtrl.push(SignupPage);
+  }
+  getUserData(uid) {
+    console.log('LoginPage ==> getUserData()');
+    try {
+      this.afDB.database.ref('Users/Users/' + uid).on('value', snapshot => {
+        console.log("return data from query",snapshot.val())
+        _this.gvp.userData.accountType = snapshot.val().accountType;
+        _this.gvp.userData.userName = snapshot.val().userName;
+      })
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

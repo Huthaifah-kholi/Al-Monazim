@@ -1,10 +1,11 @@
-import { Component, ViewChild  } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavParams, Nav } from 'ionic-angular';
 import { StartPage } from '../start/start';
 import { NotificationsPage } from '../notifications/notifications';
 import { TablePage } from '../table/table';
 import { SonsAccountsPage } from '../sons-accounts/sons-accounts';
 import { LoginPage } from '../login/login';
+import { GlobalVariablesProvider } from '../../providers/global-variables/global-variables';
 
 /**
  * Generated class for the MenuPage page.
@@ -21,16 +22,25 @@ import { LoginPage } from '../login/login';
 export class MenuPage {
   @ViewChild(Nav) navCtrl: Nav;
   rootPage: any = StartPage;
-  constructor( public navParams: NavParams) {
+  viewAcountPage: boolean;
+  constructor(public gvp: GlobalVariablesProvider, public navParams: NavParams) {
+    this.isParent();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPage');
   }
+  isParent() {
+    if (this.gvp.userData.accountType === 'father') {
+      this.viewAcountPage = true;
+    }
+    else
+      this.viewAcountPage = true;
+  }
   goToStartPage(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(StartPage);
-  } goToNotificationsPage(params) { 
+  } goToNotificationsPage(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(NotificationsPage);
   } goToTablePage(params) {

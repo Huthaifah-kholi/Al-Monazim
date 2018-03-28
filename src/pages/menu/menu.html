@@ -17,7 +17,7 @@
       <ion-item color="none" menuClose="" on-click="goToTablePage()" id="side-menu-list-table">
         الجدول
       </ion-item>
-      <ion-item color="none" menuClose="" on-click="goToSonsAccountsPage()" id="side-menu-list-sons-accounts">
+      <ion-item *ngIf="viewAcountPage" color="none" menuClose="" on-click="goToSonsAccountsPage()" id="side-menu-list-sons-accounts">
         حسابات الأبناء
       </ion-item>
       <ion-item color="none" menuClose="" on-click="goToLoginPage()" id="side-menu-list-logout">
