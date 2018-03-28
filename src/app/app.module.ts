@@ -12,6 +12,21 @@ import { MenuPage } from '../pages/menu/menu';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+// imports for firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { MenuPageModule } from '../pages/menu/menu.module';
+
+// firebase config
+export const firebaseConfig = {
+  apiKey: "AIzaSyD86KeQnNzxMPQR-4SZXK5NPrXo31lXtBY",
+  authDomain: "monazim-ebacc.firebaseapp.com",
+  databaseURL: "https://monazim-ebacc.firebaseio.com",
+  projectId: "monazim-ebacc",
+  storageBucket: "monazim-ebacc.appspot.com",
+  messagingSenderId: "527874869762"
+};
 
 @NgModule({
   declarations: [
@@ -21,27 +36,31 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TablePage,
     SonsAccountsPage,
     LoginPage,
-    SignupPage,
-    MenuPage
+    SignupPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    MenuPageModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    MenuPage,
     StartPage,
     NotificationsPage,
     TablePage,
     SonsAccountsPage,
     LoginPage,
-    SignupPage,
-    MenuPage
+    SignupPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

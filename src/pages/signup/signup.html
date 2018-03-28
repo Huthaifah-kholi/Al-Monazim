@@ -15,35 +15,35 @@
         <ion-label>
           إسم المستخدم
         </ion-label>
-        <ion-input type="text" placeholder="" name="userName"></ion-input>
+        <ion-input type="text" placeholder="" #userName></ion-input>
       </ion-item>
       <ion-item id="signup-input-email">
         <ion-label>
           البريد الإلكتروني
         </ion-label>
-        <ion-input type="email" placeholder="" name="email"></ion-input>
+        <ion-input type="email" placeholder="" #email></ion-input>
       </ion-item>
       <ion-item id="signup-input-password">
         <ion-label>
           كلمة السر
         </ion-label>
-        <ion-input type="text" placeholder="" name="password"></ion-input>
+        <ion-input type="text" placeholder="" #password></ion-input>
       </ion-item>
       <ion-item id="signup-select-accountType">
         <ion-label>
           نوع الحساب
         </ion-label>
-        <ion-select name="accountType">
-          <ion-option>
+        <ion-select name="accountType" #accountType>
+          <ion-option value="father">
             أب / أم
           </ion-option>
-          <ion-option>
+          <ion-option value="son">
             ابن
           </ion-option>
         </ion-select>
       </ion-item>
     </ion-list>
-    <button id="signup-button" ion-button color="stable" block on-click="goToLoginPage()">
+    <button id="signup-button" ion-button color="stable" block on-click="signup()">
       إنشاء الحساب
     </button>
   </form>

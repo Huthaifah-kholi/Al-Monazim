@@ -1,5 +1,5 @@
 import { Component, ViewChild  } from '@angular/core';
-import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
+import { IonicPage, NavParams, Nav } from 'ionic-angular';
 import { StartPage } from '../start/start';
 import { NotificationsPage } from '../notifications/notifications';
 import { TablePage } from '../table/table';

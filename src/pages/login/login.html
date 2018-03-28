@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hideBackButton="true">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -15,17 +15,17 @@
         <ion-label>
           البريد الإلكتروني
         </ion-label>
-        <ion-input type="email" placeholder="" name="email"></ion-input>
+        <ion-input type="email" placeholder="" name="email" #email></ion-input>
       </ion-item>
       <ion-item id="login-input-password">
         <ion-label>
           كلمة السر
         </ion-label>
-        <ion-input type="password" placeholder="" name="password"></ion-input>
+        <ion-input type="password" placeholder="" name="password" #password></ion-input>
       </ion-item>
     </ion-list>
     <div class="spacer" style="height:40px;" id="login-spacer"></div>
-    <button id="page6-button1" ion-button color="stable" block on-click="goToMenuPage()">
+    <button id="page6-button1" ion-button color="stable" block on-click="signin()">
       تسجيل الدخول
     </button>
     <button id="login-button-creat-account" ion-button clear color="positive" block on-click="goToSignupPage()">
