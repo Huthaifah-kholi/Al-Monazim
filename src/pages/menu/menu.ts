@@ -22,20 +22,22 @@ import { GlobalVariablesProvider } from '../../providers/global-variables/global
 export class MenuPage {
   @ViewChild(Nav) navCtrl: Nav;
   rootPage: any = StartPage;
-  viewAcountPage: boolean;
+  viewAcountPage: boolean = false;
   constructor(public gvp: GlobalVariablesProvider, public navParams: NavParams) {
     this.isParent();
   }
 
   ionViewDidLoad() {
+
     console.log('ionViewDidLoad MenuPage');
   }
   isParent() {
-    if (this.gvp.userData.accountType === 'father') {
+    console.log('MenuPage => isParent()');
+    
+    if (this.gvp.userData.accountType == 'father') {
       this.viewAcountPage = true;
     }
-    else
-      this.viewAcountPage = true;
+      
   }
   goToStartPage(params) {
     if (!params) params = {};

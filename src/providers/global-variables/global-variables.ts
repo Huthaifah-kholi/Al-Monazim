@@ -15,7 +15,10 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class GlobalVariablesProvider {
-  public userData: User;
+  public userData = {
+    accountType: 'father',
+    userName: 'rami'
+  }
   constructor() {
     console.log('Hello GlobalVariablesProvider Provider');
   }
