@@ -18,6 +18,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MenuPageModule } from '../pages/menu/menu.module';
 import { GlobalVariablesProvider } from '../providers/global-variables/global-variables';
+import { AddNewSonPage } from '../pages/add-new-son/add-new-son';
 
 // firebase config
 export const firebaseConfig = {
@@ -37,7 +38,8 @@ export const firebaseConfig = {
     TablePage,
     SonsAccountsPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    AddNewSonPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ export const firebaseConfig = {
     TablePage,
     SonsAccountsPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    AddNewSonPage
   ],
   providers: [
     StatusBar,

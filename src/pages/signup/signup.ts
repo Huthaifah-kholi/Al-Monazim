@@ -18,19 +18,20 @@ export class SignupPage {
   constructor(private afAuth: AngularFireAuth, private afDB: AngularFireDatabase, public navCtrl: NavController) {
   }
   signup() {
-    // this sign up using email/pass only ** 
     this.afAuth.auth.createUserWithEmailAndPassword(this.email.value, this.password.value)
       .then(
         (user) => {
-          console.log("email & pass are auth ", user);
-          this.afDB.database.ref('Users/Users/' + user.uid).set({
+          console.log("SignupPage ==> signup() ", user);
+          this.afDB.database.ref('Users/' + user.uid).set({
             accountType: this.accountType.value,
-            userName: this.userName.value
+            userName: this.userName.value,
+            email: this.email.value,
           })
           .then(
             (data) => {
-              console.log("returend data after add custom data to authnticated user :", data);
-              this.navCtrl.push(LoginPage);            }
+              console.log("SignupPage ==> signup() ==> nav to login");
+              this.navCtrl.push(LoginPage);            
+            }
           )
             .catch((erorr) => console.error())
         }).catch((erorr) => console.error())

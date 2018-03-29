@@ -22,12 +22,13 @@ export class LoginPage {
   signin() {
     console.log('LoginPage ==> signin()');
 
-    // this.afAuth.auth.signInWithEmailAndPassword("alaa@gmail.com", '123123').then(
+    this.afAuth.auth.signInWithEmailAndPassword("khalil@gmail.com", '123123').then(
     // this comment for test 
-    this.afAuth.auth.signInWithEmailAndPassword(_this.email.value, _this.password.value).then(
+    // this.afAuth.auth.signInWithEmailAndPassword(_this.email.value, _this.password.value).then(
 
       (user) => {
         _this.getUserData(user.uid);
+        _this.gvp.userData.userId = user.uid;
         console.log('LoginPage ==> signin() ==> signInWithEmailAndPassword()');
       }).catch(function (error) {
         console.log(error.message);
@@ -45,7 +46,7 @@ export class LoginPage {
   getUserData(uid) {
     console.log('LoginPage ==> getUserData()');
     try {
-      this.afDB.database.ref('Users/Users/' + uid).on('value', snapshot => {
+      this.afDB.database.ref('Users/' + uid).on('value', snapshot => {
         console.log("return data from query",snapshot.val());
         console.log(snapshot.val().accountType);
         _this.gvp.userData.accountType = snapshot.val().accountType;

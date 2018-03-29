@@ -1,0 +1,56 @@
+<!--
+  Generated template for the AddNewSonPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>إضافة حساب ابن </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form id="add-new-son-form">
+    <!-- <ion-list id="signup-list">
+      <ion-item id="signup-input-username">
+        <ion-label>
+          إسم المستخدم
+        </ion-label>
+        <ion-input type="text" placeholder="" #userName></ion-input>
+      </ion-item>
+      
+      <ion-item id="signup-input-password">
+        <ion-label>
+          كلمة السر
+        </ion-label>
+        <ion-input type="text" placeholder="" #password></ion-input>
+      </ion-item>
+      <ion-item id="signup-select-accountType">
+        <ion-label>
+          نوع الحساب
+        </ion-label>
+        <ion-select name="accountType" #accountType>
+          <ion-option value="father">
+            أب / أم
+          </ion-option>
+          <ion-option value="son">
+            ابن
+          </ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list> -->
+    <ion-item id="signup-input-email">
+      <ion-label floating>
+        البريد الالكتروني الخاص بالابن
+      </ion-label>
+      <ion-input type="email" placeholder="" #sonEmail></ion-input>
+    </ion-item>
+    <button ion-button color="stable" block on-click="addNewSon()">
+      اضافة الحساب
+    </button>
+  </form>
+</ion-content>
