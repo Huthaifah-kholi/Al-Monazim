@@ -25,7 +25,7 @@ export class SignupPage {
           this.afDB.database.ref('Users/' + user.uid).set({
             accountType: this.accountType.value,
             userName: this.userName.value,
-            email: this.email.value,
+            // email: this.email.value,
           })
           .then(
             (data) => {

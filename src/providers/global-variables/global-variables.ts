@@ -20,6 +20,7 @@ export class GlobalVariablesProvider {
     accountType: 'father',
     userName: 'rami'
   }
+  public firebaseFlag = false;
   constructor() {
     console.log('Hello GlobalVariablesProvider Provider');
   }

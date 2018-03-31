@@ -18,6 +18,7 @@ export class LoginPage {
   constructor(private afAuth: AngularFireAuth, private afDB: AngularFireDatabase, public gvp: GlobalVariablesProvider, public navCtrl: NavController, public menuCtrl: MenuController) {
     _this = this;
     this.menuCtrl.enable(false, 'myMenu');
+    _this.gvp.firebaseFlag = true;
   }
   signin() {
     console.log('LoginPage ==> signin()');
@@ -44,18 +45,27 @@ export class LoginPage {
     this.navCtrl.push(SignupPage);
   }
   getUserData(uid) {
+    
+    
+ 
+      console.log("flage on getuser", this.gvp.firebaseFlag);
+    
     console.log('LoginPage ==> getUserData()');
     try {
       this.afDB.database.ref('Users/' + uid).on('value', snapshot => {
+        if (_this.gvp.firebaseFlag === true) {
+        _this.gvp.firebaseFlag = false;
         console.log("return data from query",snapshot.val());
         console.log(snapshot.val().accountType);
         _this.gvp.userData.accountType = snapshot.val().accountType;
         _this.gvp.userData.userName = snapshot.val().userName;
         console.log("LoginPage ==> getUserData() ==> after set data", _this.gvp.userData.accountType, _this.gvp.userData.userName);
         _this.goToMenuPage();
+        }
       })
     } catch (error) {
       console.error(error);
     }
-  }
+   
+}
 }

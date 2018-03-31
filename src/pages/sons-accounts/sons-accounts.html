@@ -9,6 +9,11 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="sons-accounts-page">
+  <ion-list>
+    <button ion-item *ngFor="let son of sons" (click)="itemSelected(son)">
+      {{ son }}
+    </button>
+  </ion-list>
   <ion-fab right bottom>
     <button ion-fab color="primary" (click)="goToAddNewPage()">
       <ion-icon name="md-add"></ion-icon>
