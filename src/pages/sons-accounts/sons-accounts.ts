@@ -19,12 +19,20 @@ export class SonsAccountsPage {
   constructor(public navCtrl: NavController, private afDB: AngularFireDatabase, public gvp: GlobalVariablesProvider) {
     console.log("SonsAccountsPage constructor");
     this.getSons()    
+    
   }
   goToAddNewPage() {
     this.navCtrl.push(AddNewSonPage);
   }
-
+  clearPreviousSons(){
+    keys = []
+    Sons = []
+  }
   getSons() {
+    if(this.gvp.FirstReq === false){
+      this.clearPreviousSons()
+    }
+    this.gvp.FirstReq = false
       this.afDB.database.ref(`Users/${this.gvp.userData.userId}/sons`).once('value', snapshpt => {
         _snapshpt = snapshpt
       }).then(

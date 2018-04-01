@@ -13,30 +13,41 @@ export class SignupPage {
   @ViewChild('userName') userName;
   @ViewChild('email') email;
   @ViewChild('password') password;
-  @ViewChild('accountType') accountType;
+  @ViewChild('accountType') account_type;
 
   constructor(private afAuth: AngularFireAuth, private afDB: AngularFireDatabase, public navCtrl: NavController) {
   }
   signup() {
+    let User ={
+      accountType: '',
+      userName: '',
+      toDoList: null,
+      mobileFlage: null
+    }
+    User.accountType = this.account_type.value
+    User.userName = this.userName.value
+    if (this.account_type.value == 'son') {
+      User.mobileFlage = "turnOn"
+      for(let i=0; i<10; i++){
+        User.toDoList = ['اعطيني امر ', 'اعطيني امر ', 'اعطيني امر ', 'اعطيني امر ', 'اعطيني امر ', 'اعطيني امر ', 'اعطيني امر ', 'اعطيني امر ', 'اعطيني امر ', 'اعطيني امر ', 'اعطيني امر ', 'اعطيني امر ']
+      }
+    }
+
     this.afAuth.auth.createUserWithEmailAndPassword(this.email.value, this.password.value)
       .then(
         (user) => {
           console.log("SignupPage ==> signup() ", user);
-          this.afDB.database.ref('Users/' + user.uid).set({
-            accountType: this.accountType.value,
-            userName: this.userName.value,
-            // email: this.email.value,
-          })
-          .then(
-            (data) => {
-              console.log("SignupPage ==> signup() ==> nav to login");
-              this.navCtrl.push(LoginPage);            
-            }
-          )
+          this.afDB.database.ref('Users/' + user.uid).set(User)
+            .then(
+              (data) => {
+                console.log("SignupPage ==> signup() ==> nav to login");
+                this.navCtrl.push(LoginPage);
+              }
+            )
             .catch((erorr) => console.error())
         }).catch((erorr) => console.error())
   }
-  
+
   goTomain() {
     // if (!params) params = {};
     this.navCtrl.push(StartPage);

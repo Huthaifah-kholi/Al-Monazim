@@ -21,6 +21,7 @@ export class GlobalVariablesProvider {
     userName: 'rami'
   }
   public firebaseFlag = false;
+  public FirstReq = true;
   constructor() {
     console.log('Hello GlobalVariablesProvider Provider');
   }

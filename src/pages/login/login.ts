@@ -22,7 +22,6 @@ export class LoginPage {
   }
   signin() {
     console.log('LoginPage ==> signin()');
-
     this.afAuth.auth.signInWithEmailAndPassword("khalil@gmail.com", '123123').then(
     // this comment for test 
     // this.afAuth.auth.signInWithEmailAndPassword(_this.email.value, _this.password.value).then(
