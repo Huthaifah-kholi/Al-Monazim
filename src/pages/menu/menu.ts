@@ -23,12 +23,12 @@ export class MenuPage {
   @ViewChild(Nav) navCtrl: Nav;
   rootPage: any = StartPage;
   viewAcountPage: boolean = false;
+  viewTablePage: boolean = true;
   constructor(public gvp: GlobalVariablesProvider, public navParams: NavParams) {
     this.isParent();
   }
 
   ionViewDidLoad() {
-
     console.log('ionViewDidLoad MenuPage');
   }
   isParent() {
@@ -36,6 +36,7 @@ export class MenuPage {
     
     if (this.gvp.userData.accountType == 'father') {
       this.viewAcountPage = true;
+      this.viewTablePage = false;
     }
       
   }

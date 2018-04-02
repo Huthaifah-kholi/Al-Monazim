@@ -25,6 +25,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { GlobalVariablesProvider } from '../providers/global-variables/global-variables';
 import { AddSonProvider } from '../providers/add-son/add-son';
 import { ControlPage } from '../pages/control/control';
+import { AlertProvider } from '../providers/alert/alert';
+import { ServerReqProvider } from '../providers/server-req/server-req';
 
 
 //imports for Http reqest
@@ -83,6 +85,9 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GlobalVariablesProvider,
     AddSonProvider,
+    AlertProvider,
+    ServerReqProvider,
+    
   ]
 })
 export class AppModule {}

@@ -14,7 +14,7 @@
       <ion-item color="none" menuClose="" on-click="goToNotificationsPage()" id="side-menu-list-notifications">
         الإشعارات
       </ion-item>
-      <ion-item color="none" menuClose="" on-click="goToTablePage()" id="side-menu-list-table">
+      <ion-item *ngIf="viewTablePage" color="none" menuClose="" on-click="goToTablePage()" id="side-menu-list-table">
         الجدول
       </ion-item>
       <ion-item *ngIf="viewAcountPage" color="none" menuClose="" on-click="goToSonsAccountsPage()" id="side-menu-list-sons-accounts">
