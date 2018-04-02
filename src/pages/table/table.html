@@ -8,4 +8,16 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="tablePage"></ion-content>
+<ion-content padding id="tablePage">
+  <ion-list inset>
+    <ion-item-divider>
+      لنقم بواجباتنا مع بعض
+    </ion-item-divider>
+    <ion-item ion-item *ngFor="let item of user.toDoList; let i= index">
+      {{i+8}}:00-{{i+9}}:00 - {{item}}
+    </ion-item>
+  
+  
+  
+  </ion-list>
+</ion-content>

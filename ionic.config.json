@@ -1,6 +1,6 @@
 {
   "name": "Monazim",
-  "app_id": "",
+  "app_id": "1548080a",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

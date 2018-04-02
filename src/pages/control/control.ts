@@ -20,7 +20,7 @@ export class ControlPage {
   user = {
     name: '',
     toDoList: null,
-    mobileFlage: true
+    mobileFlage: null
   }
   constructor(private serverReq: ServerReqProvider, private alert: AlertProvider, public navCtrl: NavController, public navParams: NavParams, private afDB: AngularFireDatabase) {
     sonUid = this.navParams.data
