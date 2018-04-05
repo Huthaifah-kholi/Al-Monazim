@@ -39,4 +39,13 @@ export class AlertProvider {
     });
     prompt.present()
   }
+  basicAlert(data) {
+    let alert = this.alertCtrl.create({
+      title: 'تحذير',
+      subTitle: data,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
 }

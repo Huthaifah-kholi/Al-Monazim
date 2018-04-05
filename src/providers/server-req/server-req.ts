@@ -9,7 +9,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
 */
 @Injectable()
 export class ServerReqProvider {
-
   constructor(public afDB: AngularFireDatabase) {
     console.log('Hello ServerReqProvider Provider')
   }

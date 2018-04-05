@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { GlobalVariablesProvider } from '../../providers/global-variables/global-variables';
 import { AddNewSonPage } from '../add-new-son/add-new-son';
 import { ControlPage } from '../control/control';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AlertProvider } from '../../providers/alert/alert';
 
 let keys = []
 let SonsName = []
 let sonsIds = []
 let _snapshpt
-let _this 
+let _this
 @Component({
   selector: 'page-sons-accounts',
   templateUrl: 'sons-accounts.html'
@@ -18,10 +19,13 @@ export class SonsAccountsPage {
   // let keys: any;
   // let _snapshpt;
   sonsName = SonsName
-  constructor(public navCtrl: NavController, private afDB: AngularFireDatabase, public gvp: GlobalVariablesProvider) {
+  constructor(private alert: AlertProvider, public navCtrl: NavController, public gvp: GlobalVariablesProvider, private afDB: AngularFireDatabase) {
     console.log("SonsAccountsPage constructor");
     _this = this
-    _this.getSons()
+  }
+  ionViewDidEnter(){
+    _this.clearPreviousSons()
+    this.getSons()
   }
   goToAddNewPage() {
     _this.navCtrl.push(AddNewSonPage);
@@ -33,19 +37,21 @@ export class SonsAccountsPage {
     sonsIds = []
   }
   getSons() {
-    console.log("SonsAccountsPage ==> getSons()")
-    if (_this.gvp.FirstReq === false) {
-      _this.clearPreviousSons()
+    try {
+      console.log("SonsAccountsPage ==> getSons()")
+      _this.gvp.FirstReq = false
+      _this.afDB.database.ref(`Users/${_this.gvp.userData.userId}/sons`).once('value', snapshpt => {
+        _snapshpt = snapshpt
+      }).then(
+        _this.toArrayOfUids
+      )
+        .then(
+          _this.getUsersNameByUid
+        )
+    } catch (error) {
+      _this.alert.basicAlert(error)
     }
-    _this.gvp.FirstReq = false
-    _this.afDB.database.ref(`Users/${_this.gvp.userData.userId}/sons`).once('value', snapshpt => {
-      _snapshpt = snapshpt
-    }).then(
-      _this.toArrayOfUids
-    )
-    .then(
-      _this.getUsersNameByUid
-    )
+
   }
   toArrayOfUids() {
     console.log("SonsAccountsPage ==> toArrayOfUids()")
@@ -71,13 +77,16 @@ export class SonsAccountsPage {
   getUsersNameByUid() {
     console.log("SonsAccountsPage ==> getUsersNameByUid()")
     // let name = _this.getUserName
-
-    for (let i = 0; i < sonsIds.length; i++) {
-      _this.afDB.database.ref(`Users/${sonsIds[i]}`).once('value', snapshpt => {
-        console.log("user Name after requset userName bu id ", snapshpt.val().userName);
-        SonsName.push(snapshpt.val().userName)
-      })
-      // SonsName.push(name(sonsIds[i]))
+    try {
+      for (let i = 0; i < sonsIds.length; i++) {
+        _this.afDB.database.ref(`Users/${sonsIds[i]}`).once('value', snapshpt => {
+          console.log("user Name after requset userName bu id ", snapshpt.val().userName);
+          SonsName.push(snapshpt.val().userName)
+        })
+        // SonsName.push(name(sonsIds[i]))
+      }
+    } catch (error) {
+      _this.alert.basicAlert(error)
     }
   }
   getUserName(uid) {

@@ -4,6 +4,7 @@ import { LoginPage } from '../login/login';
 import { StartPage } from '../start/start';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AlertProvider } from '../../providers/alert/alert';
 
 @Component({
   selector: 'page-signup',
@@ -15,7 +16,7 @@ export class SignupPage {
   @ViewChild('password') password;
   @ViewChild('accountType') account_type;
 
-  constructor(private afAuth: AngularFireAuth, private afDB: AngularFireDatabase, public navCtrl: NavController) {
+  constructor(private alert:AlertProvider,private afAuth: AngularFireAuth, private afDB: AngularFireDatabase, public navCtrl: NavController) {
   }
   signup() {
     let User ={
@@ -44,8 +45,13 @@ export class SignupPage {
                 this.navCtrl.push(LoginPage);
               }
             )
-            .catch((erorr) => console.error())
-        }).catch((erorr) => console.error())
+            .catch((error) => {
+              this.alert.basicAlert(error);
+              console.error()})
+      }).catch((error) => {
+        this.alert.basicAlert(error);
+        console.error()
+      })
   }
 
   goTomain() {

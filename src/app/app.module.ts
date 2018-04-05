@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, NavController, Nav } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,6 +27,9 @@ import { AddSonProvider } from '../providers/add-son/add-son';
 import { ControlPage } from '../pages/control/control';
 import { AlertProvider } from '../providers/alert/alert';
 import { ServerReqProvider } from '../providers/server-req/server-req';
+import { BackgroundMode } from '@ionic-native/background-mode';
+import { LockScreenProvider } from '../providers/lock-screen/lock-screen';
+import { LockScreenPage } from '../pages/lock-screen/lock-screen';
 
 
 //imports for Http reqest
@@ -53,7 +56,8 @@ export const firebaseConfig = {
     LoginPage,
     SignupPage,
     AddNewSonPage,
-    ControlPage
+    ControlPage,
+    // LockScreenPage
   ],
   imports: [
     BrowserModule,
@@ -76,7 +80,8 @@ export const firebaseConfig = {
     LoginPage,
     SignupPage,
     AddNewSonPage,
-    ControlPage
+    ControlPage,
+    // LockScreenPage
   ],
   providers: [
     StatusBar,
@@ -87,7 +92,8 @@ export const firebaseConfig = {
     AddSonProvider,
     AlertProvider,
     ServerReqProvider,
-    
+    BackgroundMode,
+    LockScreenProvider,
   ]
 })
 export class AppModule {}

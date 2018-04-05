@@ -6,6 +6,7 @@ import { TablePage } from '../table/table';
 import { SonsAccountsPage } from '../sons-accounts/sons-accounts';
 import { LoginPage } from '../login/login';
 import { GlobalVariablesProvider } from '../../providers/global-variables/global-variables';
+import { LockScreenProvider } from '../../providers/lock-screen/lock-screen';
 
 /**
  * Generated class for the MenuPage page.
@@ -24,12 +25,12 @@ export class MenuPage {
   rootPage: any = StartPage;
   viewAcountPage: boolean = false;
   viewTablePage: boolean = true;
-  constructor(public gvp: GlobalVariablesProvider, public navParams: NavParams) {
+  constructor(public lockscreen:LockScreenProvider,public gvp: GlobalVariablesProvider, public navParams: NavParams) {
     this.isParent();
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPage');
+    this.lockscreen.listenToMobile(this.navCtrl);
   }
   isParent() {
     console.log('MenuPage => isParent()');

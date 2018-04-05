@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { LockScreenProvider } from '../../providers/lock-screen/lock-screen';
 
 @Component({
   selector: 'page-notifications',
@@ -7,7 +8,7 @@ import { NavController } from 'ionic-angular';
 })
 export class NotificationsPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public lockscreen:LockScreenProvider,public navCtrl: NavController) {
   }
   
 }

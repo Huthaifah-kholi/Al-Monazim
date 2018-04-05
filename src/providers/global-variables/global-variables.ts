@@ -18,10 +18,12 @@ export class GlobalVariablesProvider {
   public userData = {
     userId: '',
     accountType: 'father',
-    userName: 'rami'
+    userName: 'rami',
+    mobileFlage: false
   }
   public firebaseFlag = false;
   public FirstReq = true;
+  public isLockScreenActive: boolean = null
   constructor() {
     console.log('Hello GlobalVariablesProvider Provider');
   }

@@ -31,16 +31,20 @@ export class ControlPage {
     console.log('ionViewDidLoad ControlPage');
   }
   getData() {
-    console.log("ControlPage ==> getData()")
-    this.afDB.database.ref(`Users/${sonUid}`).on('value', snapshpt => {
-      this.user.name = snapshpt.val().userName
-      this.user.mobileFlage = snapshpt.val().mobileFlage
-      this.user.toDoList = snapshpt.val().toDoList
-    })
+    try {
+      console.log("ControlPage ==> getData()")
+      this.afDB.database.ref(`Users/${sonUid}`).on('value', snapshpt => {
+        this.user.name = snapshpt.val().userName
+        this.user.mobileFlage = snapshpt.val().mobileFlage
+        this.user.toDoList = snapshpt.val().toDoList
+      })     
+    } catch (error) {
+      console.log(error);
+      this.alert.basicAlert(error)
+    }
   }
   change(i) {
     console.log("ControlPage ==> change()")
-    let inputData = ''
     let title = 'غيّر الواجب'
     let msg = this.user.toDoList[i] + 'قم بتغيير مكونات '
     let inputs = [{
