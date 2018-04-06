@@ -7,6 +7,8 @@ import { SonsAccountsPage } from '../sons-accounts/sons-accounts';
 import { LoginPage } from '../login/login';
 import { GlobalVariablesProvider } from '../../providers/global-variables/global-variables';
 import { LockScreenProvider } from '../../providers/lock-screen/lock-screen';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AlertProvider } from '../../providers/alert/alert';
 
 /**
  * Generated class for the MenuPage page.
@@ -25,7 +27,7 @@ export class MenuPage {
   rootPage: any = StartPage;
   viewAcountPage: boolean = false;
   viewTablePage: boolean = true;
-  constructor(public lockscreen:LockScreenProvider,public gvp: GlobalVariablesProvider, public navParams: NavParams) {
+  constructor(public lockscreen:LockScreenProvider,public gvp: GlobalVariablesProvider, public navParams: NavParams,private afAuth: AngularFireAuth,private alert:AlertProvider) {
     this.isParent();
   }
   ionViewDidLoad() {
@@ -41,6 +43,18 @@ export class MenuPage {
     }
       
   }
+  logout(){
+    this.afAuth.auth.signOut().then(
+      () => {
+        this.goToLoginPage()
+      }
+    )
+    .catch(
+      (error) =>{
+        this.alert.basicAlert(error)
+      }
+    )
+  }
   goToStartPage(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(StartPage);
@@ -53,8 +67,7 @@ export class MenuPage {
   } goToSonsAccountsPage(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(SonsAccountsPage);
-  } goToLoginPage(params) {
-    if (!params) params = {};
-    this.navCtrl.setRoot(LoginPage, {}, { animate: true, direction: 'forward' });
+  } goToLoginPage() {
+    this.navCtrl.setRoot(LoginPage, {} , {animate: true, direction: 'forword'})
   }
 }
