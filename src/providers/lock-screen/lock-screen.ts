@@ -5,6 +5,7 @@ import { NavController } from 'ionic-angular';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { LockScreenPage } from '../../pages/lock-screen/lock-screen';
 import { MenuPage } from '../../pages/menu/menu';
+import { Cordova } from '@ionic-native/core';
 /*
   Generated class for the LockScreenProvider provider.
 

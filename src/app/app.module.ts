@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler, NavController, Nav } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, NavController } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,14 +27,17 @@ import { AddSonProvider } from '../providers/add-son/add-son';
 import { ControlPage } from '../pages/control/control';
 import { AlertProvider } from '../providers/alert/alert';
 import { ServerReqProvider } from '../providers/server-req/server-req';
-import { BackgroundMode } from '@ionic-native/background-mode';
 import { LockScreenProvider } from '../providers/lock-screen/lock-screen';
-import { LockScreenPage } from '../pages/lock-screen/lock-screen';
 
-
+// plugins - ionc native
+import { BackgroundMode } from '@ionic-native/background-mode';
+import { Autostart } from '@ionic-native/autostart';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 //imports for Http reqest
 // import { HttpClientModule } from '@angular/common/http';
 // import { HttpModule } from '@angular/http';
+// pipes
+import { YoutubePipe } from '../pipes/youtube/youtube';
 
 // firebase config
 export const firebaseConfig = {
@@ -45,7 +48,7 @@ export const firebaseConfig = {
   storageBucket: "monazim-ebacc.appspot.com",
   messagingSenderId: "527874869762"
 };
-
+// 
 @NgModule({
   declarations: [
     MyApp,
@@ -57,6 +60,7 @@ export const firebaseConfig = {
     SignupPage,
     AddNewSonPage,
     ControlPage,
+    YoutubePipe
     // LockScreenPage
   ],
   imports: [
@@ -66,6 +70,7 @@ export const firebaseConfig = {
     MenuPageModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    
     // HttpModule,
     // HttpClientModule
   ],
@@ -94,6 +99,9 @@ export const firebaseConfig = {
     ServerReqProvider,
     BackgroundMode,
     LockScreenProvider,
+    Autostart,
+    YoutubeVideoPlayer,
+    YoutubePipe
   ]
 })
 export class AppModule {}
