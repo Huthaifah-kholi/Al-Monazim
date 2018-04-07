@@ -94,7 +94,7 @@
     <plugin name="cordova-plugin-kiosk" spec="0.2" />
     <plugin name="wifiwizard" spec="https://github.com/hoerresb/WifiWizard" />
     <plugin name="cordova-plugin-android-wifi-manager" spec="^1.2.0" />
+    <allow-navigation href="http://192.168.1.102:8101" />
     <engine name="browser" spec="5.0.3" />
     <engine name="android" spec="7.0.0" />
-    <allow-navigation href="http://192.168.1.102:8101" />
 </widget>
