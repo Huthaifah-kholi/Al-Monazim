@@ -9,6 +9,7 @@ import { GlobalVariablesProvider } from '../../providers/global-variables/global
 import { LockScreenProvider } from '../../providers/lock-screen/lock-screen';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AlertProvider } from '../../providers/alert/alert';
+import { EnableWifiPage } from '../enable-wifi/enable-wifi';
 
 /**
  * Generated class for the MenuPage page.
@@ -69,5 +70,7 @@ export class MenuPage {
     this.navCtrl.setRoot(SonsAccountsPage);
   } goToLoginPage() {
     this.navCtrl.setRoot(LoginPage, {} , {animate: true, direction: 'forword'})
+  } goToEnableWifi(){
+    this.navCtrl.setRoot(EnableWifiPage);
   }
 }

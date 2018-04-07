@@ -10,4 +10,4 @@ import { MenuPage } from './menu';
     IonicPageModule.forChild(MenuPage),
   ],
 })
-export class MenuPageModule {}
+export class MenuPageModule { }

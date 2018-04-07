@@ -15,12 +15,13 @@ import { SignupPage } from '../pages/signup/signup';
 import { MenuPage } from '../pages/menu/menu';
 import { MenuPageModule } from '../pages/menu/menu.module';
 import { AddNewSonPage } from '../pages/add-new-son/add-new-son';
-
+import { EnableWifiPage } from '../pages/enable-wifi/enable-wifi';
 
 // imports for firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
 // gloable variable as service
 import { GlobalVariablesProvider } from '../providers/global-variables/global-variables';
 import { AddSonProvider } from '../providers/add-son/add-son';
@@ -31,13 +32,11 @@ import { LockScreenProvider } from '../providers/lock-screen/lock-screen';
 
 // plugins - ionc native
 import { BackgroundMode } from '@ionic-native/background-mode';
-import { Autostart } from '@ionic-native/autostart';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
-//imports for Http reqest
-// import { HttpClientModule } from '@angular/common/http';
-// import { HttpModule } from '@angular/http';
+
 // pipes
 import { YoutubePipe } from '../pipes/youtube/youtube';
+import { LockScreenPage } from '../pages/lock-screen/lock-screen';
 
 // firebase config
 export const firebaseConfig = {
@@ -60,8 +59,9 @@ export const firebaseConfig = {
     SignupPage,
     AddNewSonPage,
     ControlPage,
-    YoutubePipe
-    // LockScreenPage
+    EnableWifiPage,
+    LockScreenPage,
+    YoutubePipe,
   ],
   imports: [
     BrowserModule,
@@ -70,9 +70,6 @@ export const firebaseConfig = {
     MenuPageModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    
-    // HttpModule,
-    // HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -85,8 +82,9 @@ export const firebaseConfig = {
     LoginPage,
     SignupPage,
     AddNewSonPage,
+    EnableWifiPage,
     ControlPage,
-    // LockScreenPage
+    LockScreenPage
   ],
   providers: [
     StatusBar,
@@ -99,9 +97,7 @@ export const firebaseConfig = {
     ServerReqProvider,
     BackgroundMode,
     LockScreenProvider,
-    Autostart,
     YoutubeVideoPlayer,
-    YoutubePipe
   ]
 })
 export class AppModule {}

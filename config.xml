@@ -3,7 +3,7 @@
     <name>Kids Monitor</name>
     <description />
     <author email="hi@ionicframework" href="huthaifah.k.kholi@gmail.com">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.1.102:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -92,6 +92,9 @@
     <plugin name="cordova-plugin-insomnia" spec="~4.3.0" />
     <plugin name="cordova-plugin-autostart" spec="~2.3.0" />
     <plugin name="cordova-plugin-kiosk" spec="0.2" />
+    <plugin name="wifiwizard" spec="https://github.com/hoerresb/WifiWizard" />
+    <plugin name="cordova-plugin-android-wifi-manager" spec="^1.2.0" />
     <engine name="browser" spec="5.0.3" />
     <engine name="android" spec="7.0.0" />
+    <allow-navigation href="http://192.168.1.102:8101" />
 </widget>

@@ -9,9 +9,16 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="tablePage">
+
   <ion-list inset>
     <ion-item-divider>
-      لنقم بواجباتنا مع بعض
+        <br>
+        <img src="assets/imgs/table.png" style="width: 100%; height: 100%;" />
+        <br>
+        <h2 style="text-align: center;font-size: 4rem;">
+          لنقم بواجباتنا مع بعض
+        </h2>
+        <br>
     </ion-item-divider>
     <ion-item ion-item *ngFor="let item of user.toDoList; let i= index">
       {{i+8}}:00-{{i+9}}:00 - {{item}}

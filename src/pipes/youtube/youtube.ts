@@ -7,12 +7,11 @@ import { DomSanitizer } from '@angular/platform-browser';
  * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
  */
 @Pipe({
-  name: 'youtube',
+  name: 'YoutubePipe',
 })
 export class YoutubePipe implements PipeTransform {
   
   constructor(private dom:DomSanitizer){
-
   }
   transform(value: string) {
     return this.dom.bypassSecurityTrustResourceUrl(value)

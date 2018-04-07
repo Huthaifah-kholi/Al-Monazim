@@ -9,21 +9,18 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="notifications-page">
-  <!-- <div class="videowrapper">
-      <iframe [src]="updateVideoUrl(video_id)" frameborder="0" allowfullscreen width="1265" height="615">
-      
-      </iframe>
+  <ion-card>
+    <img src="assets/imgs/show.png" style="width: 100%; height: 100%;" />
 
-  </div> -->
-  <ion-card *ngFor="let vedio of vedios">
+  </ion-card>
+  <ion-card *ngFor="let v of vedios">
     <ion-card-header>
-      {{vedio.title}}
+      {{v.title}}
     </ion-card-header>
     <ion-card-content>
-      <iframe [src]="vedio.vedio | youtube" frameborder="0" allowfullscreen width="100%" height="20%">
-      
+      <iframe frameborder="0" allowfullscreen width="100%" height="20%" 
+      [src]="v.vedio | YoutubePipe">
       </iframe>
-      
     </ion-card-content>
   </ion-card>
 </ion-content>

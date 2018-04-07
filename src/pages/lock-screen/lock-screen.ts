@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GlobalVariablesProvider } from '../../providers/global-variables/global-variables';
+import { BackgroundMode } from '@ionic-native/background-mode';
 
 /**
  * Generated class for the LockScreenPage page.
@@ -16,12 +17,13 @@ import { GlobalVariablesProvider } from '../../providers/global-variables/global
 })
 export class LockScreenPage {
 
-  constructor(public gvp: GlobalVariablesProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private backgroundMode:BackgroundMode,public gvp: GlobalVariablesProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
-
+  
   ionViewDidLoad() {
     this.gvp.isLockScreenActive = true
-    console.log('ionViewDidLoad LockScreenPage');
+    this.backgroundMode.overrideBackButton()
+    console.log('ionViewDidLoad LockScreenPage, this.gvp.isLockScreenActive ==',this.gvp.isLockScreenActive);
   }
   ionViewDidLeave() {
     this.gvp.isLockScreenActive = false

@@ -32,9 +32,9 @@ export class LoginPage {
   }
   signin() {
     console.log('LoginPage ==> signin()');
-    this.afAuth.auth.signInWithEmailAndPassword(this.email.value+"@gmail.com", '123123').then(
+    // this.afAuth.auth.signInWithEmailAndPassword(this.email.value+"@gmail.com", '123123').then(
     // this comment for test 
-    // this.afAuth.auth.signInWithEmailAndPassword(this.email.value, this.password.value).then(
+    this.afAuth.auth.signInWithEmailAndPassword(this.email.value, this.password.value).then(
       (user) => {
         this.getUserData(user.uid);
         this.gvp.userData.userId = user.uid;
